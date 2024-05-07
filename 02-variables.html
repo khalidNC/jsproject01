@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Variables</title>
+  </head>
+  <body>
+    <script>
+      let variable1 = 3;
+      console.log(variable1);
+
+      let calculation = 2 + 5;
+      console.log(calculation);
+      console.log(calculation + 3);
+
+      let results = calculation + 3;
+      console.log(results);
+
+      let message = "hello";
+      console.log(message);
+      console.log("world");
+
+      // Reassign value in variable1 now the value is 5
+      variable1 = 5;
+      console.log(variable1);
+
+      // Increase the value of variable1 by 1
+      variable1 = variable1 + 1;
+      console.log(variable1);
+
+      // Created a variable that value is not changable
+      const variable2 = 3;
+      console.log(`variable2 value is: ${variable2}`);
+
+      // Created a variable with var, which is a older way to create variable like let though it has issue.
+      var variable3 = 10;
+
+      // Typeof variable
+      console.log(typeof variable1); // It shows number as type in console
+      console.log(typeof message); // It shows string as type in console
+    </script>
+  </body>
+</html>

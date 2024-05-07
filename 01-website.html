@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML CSS</title>
+    <style>
+      .red-button {
+        background-color: red;
+        color: white;
+        border: none;
+      }
+
+      .yellow-button {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      onclick attribute to click action of the button when click this will 
+      popup good morning on browser 
+    -->
+    <button
+      title="Tooltip"
+      class="red-button"
+      onclick="
+        alert('Good Morning!');
+      "
+    >
+      hello
+    </button>
+    <p>paragarph of <button class="yellow-button">hello</button>text</p>
+
+    <script>
+      // Created a popup on browser to say hello
+      alert("Hello");
+
+      // Use console.log() function to see the results in browser console
+      console.log(2 + 2);
+    </script>
+  </body>
+</html>
