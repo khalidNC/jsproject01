@@ -13,11 +13,48 @@
       console.log(3 < 5);
 
       // If statement
-      if (ture) {
+      if (true) {
         console.log("hello");
       } else {
         console.log("else");
       }
+
+      const age = 17;
+      // A practical example. Check the age of a legal driver atleast 18 years old.
+      if (age >= 18) {
+        console.log("You can drive."); // is called branch
+      } else if (age >= 16) {
+        //Example of multipule if statements
+        console.log("Almost there!");
+      } else {
+        console.log("You can not drive.");
+      }
+
+      // If there is a single line of code in the branch then we can avoid the curly bracket
+      // if (17 >= 18)
+      //   console.log("You can drive.");
+      // else {
+      //   console.log("You can not drive.");
+      // }
+
+      // We may have multipule if statements, like in the above example we can add another if statement with else if
+
+      // Now we can use a varibale storing the value to replace hardcoded value in the if statement condition
+      // Like const age = 17; and replace the age instead numeric value 17 in codes.
+
+      // Logical and oparator, syntax and example: checking 0.2 is in between 0 to 1/3 of 1
+      // Calculation steps: Logical and oparator first does the math(1/3)
+      // Then checks left side
+      // then check right side
+      // Then finally, && oparator check the both side is true.
+      console.log(true && true);
+      console.log(0.2 >= 0 && 0.2 <= 1 / 3);
+
+      // Logical or oparator
+      console.log(true || false);
+
+      // Logical not oparator, this flips the boolen like if the logic not true means false
+      console.log(!true); // This will show flase
     </script>
   </body>
 </html>
