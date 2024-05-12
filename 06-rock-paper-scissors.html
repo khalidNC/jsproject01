@@ -8,7 +8,7 @@
     <!-- 
       Algorithm:
       1. Computer generate a random number and select a move
-      2. Compair the moves to get e results
+      2. Compaire the moves to get a result
       3. Popup the results in browser
     -->
     <button
@@ -43,7 +43,7 @@
       } else if (computerMove === 'Paper') {
         result = 'You lose.';
       } else if (computerMove === 'Scissors') {
-        result = 'You win'
+        result = 'You win.'
       }
 
       // Now show the result in popup in browser
@@ -57,9 +57,75 @@
       Rock
     </button>
 
-    <button>Paper</button>
+    <button
+      onclick="
+      // Generate ramdom number  0 to 1
+      const randomNumPaper = Math.random();
 
-    <button>Scissors</button>
+      // Assign the the random value get form the if condition below in the empty string
+      let computerMovePaper = '';
+
+      // Select computer move
+      if (randomNumPaper >= 0 && randomNumPaper < 1 / 3) {
+        computerMovePaper = 'Rock'
+      } else if (randomNumPaper >= 1 / 3 && randomNumPaper < 2 / 3) {
+        computerMovePaper = 'Paper'
+      } else if (randomNumPaper >= 2 / 3 && randomNumPaper < 1) {
+        computerMovePaper = 'Scissors'
+      }
+
+      // Compaire my move to computer move and store the value in a results
+      let resultPaper = '';
+      
+      if (computerMovePaper === 'Rock') {
+        resultPaper = 'You win.';
+      } else if (computerMovePaper === 'Paper') {
+        resultPaper = 'Tie.';
+      } else if (computerMovePaper === 'Scissors') {
+        resultPaper = 'You lose.'
+      }
+
+      // Show the result in a browser popup
+      alert(`You picked paper. Computer picked ${computerMovePaper}. ${resultPaper}`)
+    "
+    >
+      Paper
+    </button>
+
+    <button
+      onclick="
+      // Generate ramdom number  0 to 1
+      const randomNumScissors = Math.random();
+
+      // Assign the the random value get form the if condition below in the empty string
+      let computerMoveScissors = '';
+
+      // Select computer move
+      if (randomNumScissors >= 0 && randomNumScissors < 1 / 3) {
+        computerMoveScissors = 'Rock'
+      } else if (randomNumScissors >= 1 / 3 && randomNumScissors < 2 / 3) {
+        computerMoveScissors = 'Paper'
+      } else if (randomNumScissors >= 2 / 3 && randomNumScissors < 1) {
+        computerMoveScissors = 'Scissors'
+      }
+
+      // Compaire my move to computer move and store the value in a results
+      let resultScissors = '';
+      
+      if (computerMoveScissors === 'Rock') {
+        resultScissors = 'You lose.';
+      } else if (computerMoveScissors === 'Paper') {
+        resultScissors = 'You win.';
+      } else if (computerMoveScissors === 'Scissors') {
+        resultScissors = 'Tie.'
+      }
+
+      // Show the result in a browser popup
+      alert(`You picked scissors. Computer picked ${computerMoveScissors}. ${resultScissors}`)
+    "
+    >
+      Scissors
+    </button>
 
     <script></script>
   </body>
