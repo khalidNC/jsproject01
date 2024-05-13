@@ -5,6 +5,7 @@
   </head>
   <body>
     <script>
+      /*
       true;
 
       false;
@@ -55,6 +56,171 @@
 
       // Logical not oparator, this flips the boolen like if the logic not true means false
       console.log(!true); // This will show flase
+      */
+
+      /*
+      // Truthy value:
+      if (5) {
+        console.log("truthy");
+      }
+
+      //Falsy value: False so this code will not run
+      // Fasly values are: false, 0, '', NaN, undefined, null
+      if (0) {
+        console.log("falsy");
+      }
+
+      // Example:
+      const cartQuantity = 5;
+
+      if (cartQuantity > 0) {
+        // Usally we write the condition like this way
+        console.log("Cart has products");
+      }
+
+      // since cartQuantity is 5 so this is not flasy value so fi we write like below will wrok same as above.
+      if (cartQuantity) {
+        console.log("Cart has products");
+      }
+
+      // Truthy and falsy value works with logical oparator
+      console.log(!0);
+
+      // Here zero is a falsy value so it works like flase and the not(!) oparator will flip this to Ture
+      // In console this will display 'ture'
+
+      // NaN(Not a Number):
+      console.log("text" / 3);
+
+      // In console it will show 'NaN' which is not a number
+
+      // Undefined: if we create a variable but not assigned anything into it and it show 'undefined'in console
+      let variable1;
+
+      console.log(variable1);
+      // Note: this work when we only use 'let' this will not work with 'const' while create a variable
+      // We can do with const but we need to do like:
+      const variable2 = undefined;
+
+      console.log(variable2);
+
+      // null: will cover this later in this course.
+      */
+
+      // Short cut for if statement:
+      // ternary oparator ?:
+      // Guard oparator &&
+      // Default oparator ||
+
+      // Ternary oparator:
+      true ? "truthy" : "flasy";
+      // Is a ternary oparator, it is similart like if else statement
+      // the fisrt value(true) is like condition, if it is ture the value after the questions mark works
+      // and if it is flase then the value after the colon works
+      // So we can think, after the question mark part is if branch and the colon part is the else branch
+      // So this is a short cat of a if statement like this;
+
+      // if (ture) {
+      //   ("truthy");
+      // } else {
+      //   ("falsy");
+      // }
+
+      // Advantage of this ternary oparator is we can save this is a variable
+      const result = true ? "truthy" : "flasy";
+
+      // Now show this in console: it shows 'truthy' because first value is ture so 'truthy' is saved in the variable.
+      console.log(result);
+
+      // Now if we put a falsy value(0) as condition then the text after the colon will save in the variable
+      const results = 0 ? "truthy" : "falsy";
+      console.log(results);
+
+      // this is a shortcut way to right a if statement like this;
+      // let results1 = '';
+
+      // if (condition) {
+      //   results1 = 'truthy';
+      // } else {
+      //   results1 = 'falsy';
+      // }
+
+      // Gaurd Oparator:
+      // We already know the && oparator, it checks the both sides are truthy.
+      // with this example: falsy && truthy since left side is already false so the oparator stops earlier
+      // and get results flase as below;
+      false && console.log("Hello");
+      // here the console show nothing becase the oparator stop early when it found left side is falsy so it will not run the right side code.
+      // This is called short-circuit evaluation
+
+      //Now if put ture instead false it console will show the 'hello' word.
+      true && console.log("hello");
+      6 && console.log("hello world"); // here 6 is a truthy value so oparator runs the right side and print hello world.
+
+      // This is the shortcut way to right if condition:
+      // if (condition) {
+      //   console.log("hello");
+      // }
+
+      // This is also can store in a variable
+      const message = false && "hello khalid!";
+
+      console.log(message);
+      // This will show flase because left side is false and the and oparator stop early and not execute the right side
+
+      const sms = true && "Hello Khalid!";
+
+      console.log(sms);
+      // This will show 'Hello Khalid!' because left side is ture and it execute the full line of code.
+
+      // This is the shortcut way of writing below code with if else;
+      let messages = "";
+
+      if (true) {
+        messages = "Hello Khalid!";
+      } else {
+        messages = "false";
+      }
+
+      console.log(messages);
+
+      // Default Oparator:
+      // It is kind of similar to the gurd oparator but it checks atleast one side is truthy.
+      // We already know this: false || true
+      // Now if the left side is true: true || value2 then we already know the result of this code which is true.
+      // So the oparator stop or short-circuite if the left side is truthy.
+      // Now a real example: Let's say a user has option to choose currency(EUR/BDT/GBP etc) and site default currency is USD if user does not choose anything.
+      // When user choose EUR
+      const currency = "EUR" || "USD";
+      console.log(currency);
+      // This will shows EUR in console becuase the left side is truthy so default oparator does not excute right side
+
+      // When user choose nothing then it show default value:
+      const currency1 = undefined || "USD";
+      console.log(currency1);
+      // Now it shows USD in the console, because 'undefined' is a falsy value so the default oparator executes the right side.
+      // Since this oparator is used to get default vakue so it is called default oparator.
+
+      // This is the shortcut way of writing the codes with if else:
+      let currency2 = "";
+
+      if ((currency2 = undefined)) {
+        currency2 = " ";
+      } else {
+        currency2 = "USD";
+      }
+
+      console.log(currency2);
+
+      // or shortcut of this:
+      let currency3;
+
+      if (!undefined) {
+        currency3 = "USD";
+      }
+      console.log(currency3);
+
+      //
     </script>
   </body>
 </html>
