@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <!-- 
+      Algorithm:
+      1. Computer generate a random number and select a move
+      2. Compaire the moves to get a result
+      3. Popup the results in browser
+    -->
+    <button
+      onclick="
+      const randomNumber = Math.random();
+      // Random generate number between 0 to 1
+      // So the algorithm will be spliting 1 to 3 equal parts, 0 to 1/3, 1/3 to 2/3, and 2/3 to 1
+      // check if the ramdom number is in between 0 to 1/3 then the move is Rock
+      // If 1/3 to 2/3 then the move is Paper and for other part it is scissors
+
+      // Now for the second step, instead console.log store the move in a variable computerMove and initially it is empty
+      let computerMove = '';
+      if (randomNumber >= 0 && randomNumber < 1 / 3) {
+        // console.log('Rock')
+        computerMove = 'Rock';
+      } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+        // console.log('Paper')
+        computerMove = 'Paper';
+      } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+        // console.log('Scissors')
+        computerMove = 'Scissors';
+      }
+
+      // Now we need to compair the computer move to our move and get the result
+      // So we will use if statement once again
+      // We will store the results in a variable called result in outside if statement as scope rule
+
+      let result = '';
+
+      if (computerMove === 'Rock') {
+        result = 'Tie.';
+      } else if (computerMove === 'Paper') {
+        result = 'You lose.';
+      } else if (computerMove === 'Scissors') {
+        result = 'You win.'
+      }
+
+      // Now show the result in popup in browser
+      alert(`You picked rock. Computer picked ${computerMove}. ${result}`);
+
+      // console.log(computerMove)
+      // This raised error in console saying computerMove is not define. It is because it out of scope. Scope limits where a variable exist.
+      // So fix this we need to create the variable outside of the if statement
+    "
+    >
+      Rock
+    </button>
+
+    <button
+      onclick="
+      // Generate ramdom number  0 to 1
+      const randomNumPaper = Math.random();
+
+      // Assign the the random value get form the if condition below in the empty string
+      let computerMovePaper = '';
+
+      // Select computer move
+      if (randomNumPaper >= 0 && randomNumPaper < 1 / 3) {
+        computerMovePaper = 'Rock'
+      } else if (randomNumPaper >= 1 / 3 && randomNumPaper < 2 / 3) {
+        computerMovePaper = 'Paper'
+      } else if (randomNumPaper >= 2 / 3 && randomNumPaper < 1) {
+        computerMovePaper = 'Scissors'
+      }
+
+      // Compaire my move to computer move and store the value in a results
+      let resultPaper = '';
+      
+      if (computerMovePaper === 'Rock') {
+        resultPaper = 'You win.';
+      } else if (computerMovePaper === 'Paper') {
+        resultPaper = 'Tie.';
+      } else if (computerMovePaper === 'Scissors') {
+        resultPaper = 'You lose.'
+      }
+
+      // Show the result in a browser popup
+      alert(`You picked paper. Computer picked ${computerMovePaper}. ${resultPaper}`)
+    "
+    >
+      Paper
+    </button>
+
+    <button
+      onclick="
+      // Generate ramdom number  0 to 1
+      const randomNumScissors = Math.random();
+
+      // Assign the the random value get form the if condition below in the empty string
+      let computerMoveScissors = '';
+
+      // Select computer move
+      if (randomNumScissors >= 0 && randomNumScissors < 1 / 3) {
+        computerMoveScissors = 'Rock'
+      } else if (randomNumScissors >= 1 / 3 && randomNumScissors < 2 / 3) {
+        computerMoveScissors = 'Paper'
+      } else if (randomNumScissors >= 2 / 3 && randomNumScissors < 1) {
+        computerMoveScissors = 'Scissors'
+      }
+
+      // Compaire my move to computer move and store the value in a results
+      let resultScissors = '';
+      
+      if (computerMoveScissors === 'Rock') {
+        resultScissors = 'You lose.';
+      } else if (computerMoveScissors === 'Paper') {
+        resultScissors = 'You win.';
+      } else if (computerMoveScissors === 'Scissors') {
+        resultScissors = 'Tie.'
+      }
+
+      // Show the result in a browser popup
+      alert(`You picked scissors. Computer picked ${computerMoveScissors}. ${resultScissors}`)
+    "
+    >
+      Scissors
+    </button>
+
+    <script></script>
+  </body>
+</html>
