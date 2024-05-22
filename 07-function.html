@@ -94,12 +94,85 @@
       <br>function1();
     </p>
     <script>
+      /*
       function function1() {
         console.log("hello");
         console.log(2 + 2);
       }
 
       function1();
+      */
+
+      // Parameter is opposite of a return statement, the returning the value of function.
+      // A return statement get a value out of the function
+      // A parameter puts a value into a function
+      // Let's have an example, in our b2b website we need to calculate tax of a product ordered
+      // Create a function and let's a the product cost in 10dollers or 1000cents, and the tax percentage is 10% so it is (price * .10) and print this math in console
+      
+      /*
+      function calculateTax() {
+        console.log(1000 * 0.1);
+      }
+
+      calculateTax();
+      // It shows the results 100 in console.
+      */
+
+      // We want to calculate any figure of numbers now 
+      // To do this we use parameter to put value into a function, let's put parameter inside the brackets
+
+      /*
+      function calculateTax(parameter1) {
+        console.log(parameter1 * 0.1);
+      }
+      */
+
+      // Parameter works in same way as variable, we can save a value inside a parameter, and use it just like a variable.
+      // Let's save a value inside a parameter, to do so we will put a value inside the bracket while call the function
+
+      /*
+      calculateTax(2000);
+      */
+
+      // This value(2000) saved into the parameter, now we will use this as variable.
+      // Instead 1000 we will write parameter1
+      // Now it shows 200 in console.
+
+      // Now everytime we call the function we can save a different value inside the parameter.
+      // Like if we call the fucntion with a different value let's say 5000 cents
+
+      /*
+      calculateTax(5000);
+      */
+
+      // This is will print 500 in console
+      // Another name of the value is argument
+
+
+      // Now if want to use another parameter in this function for tax percentage
+      // To do so we will just put a parameter in the function
+      // And when call the function we will put the real value with comma separate
+
+      /*
+      function calculateTax(cost, taxParcentage) {
+        console.log(cost * taxParcentage);
+      }
+
+      calculateTax(2000, 0.1);
+      calculateTax(2000, 0.2);
+      */
+
+      // Another feature of setting a defalue value into a parameter
+      function calculateTax(cost, taxParcentage = 0.10) {
+        console.log(cost * taxParcentage);
+      }
+
+      calculateTax(2000, 0.2);
+      calculateTax(5000);
+
+      // On the above function we set the default value for the parameter using the equal sign and the real value
+      // So when we call the fuction and we provide the fisrt value/argument inside  the function, then for the second value automatically calculate as default settings which is .10.
+      // So the resuls shows in cosnsole: 400 and for the second call 500
     </script>
   </body>
 </html>
