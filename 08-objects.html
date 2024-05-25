@@ -36,6 +36,24 @@
       console.log(product);
       // now we can access the object by preperty
       console.log(product.name);
+      console.log(product.price);
+
+      // Now we can change the value of a property
+      product.name = "cotton socks";
+
+      // Now print the object product in console will show 'cotton socks' instead 'socks'
+      console.log(product);
+
+      //Ad new property
+      product.newProperty = "true";
+      console.log(product);
+
+      //Remove property
+      delete product.newProperty;
+      console.log(product);
+
+      // Chaech the typeof the object
+      console.log(typeof product);
     </script>
   </body>
 </html>
