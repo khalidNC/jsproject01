@@ -56,6 +56,53 @@
       // Chaech the typeof the object
       console.log(typeof products);
       */
+
+      // Another object
+      const product2 = {
+        name: "shirt",
+        // We can add property using bracket notation
+        // ["delivery-time"]: "1 Day",
+        // There is a short-cut if we do not provide the bracket here this will still works
+        "delivery-time": "1 Day",
+
+        // Nested object:
+        rating: {
+          stars: 4.5,
+          count: 87,
+        },
+
+        // Also we can put a function into a object
+        fun: function function1() {
+          console.log("Function inside an object");
+        },
+      };
+
+      // Now print the value
+      console.log(product2);
+
+      // Access the property by dot notation is
+      console.log(product2.name);
+
+      // Another wany to access property is using squire brackets, called bracket notation
+      console.log(product2["name"]);
+
+      // when we will use bracket notation? Let's have an example, try to access a property like delivery-time which should return undefined sicne the property does not exist yet
+      // But in this case, it gives an error because JS thinks the 'dash' sing as minus and try to do math.
+      // console.log(product2.delivery - time);
+
+      // So in this case, we can use bracket notation that will not give error it will return 'undefined'
+      console.log(product2["delivery-time"]);
+
+      // Now access the value of nested object by dot or bracket notation
+      console.log(product2.rating.stars);
+
+      // To access the value of a function inside an object by dot or bracket notation,
+      // to call the function by dot notation object name then dot then fun(), this call the function and print in console
+      // So the function inside am object is called method
+      product2.fun();
+
+      // using bracket notation
+      product2["fun"]();
     </script>
   </body>
 </html>
