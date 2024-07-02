@@ -40,6 +40,26 @@
       2. LocalStorage
     </p>
 
+    <h3>JSON Built-in object:</h2>
+    <p>
+      JSON built in object helps us work with JSON. JSON stands for JvaScript Object Notation.
+      <br />
+      JSON Syntax:
+      <br />
+      JSON syntax is similar to javascript object but it has less features. JSON all double qoutes. And JSON does not support functions
+    </p>
+
+    <h3>When to use JSON Built-in object:</h2>
+      <p>
+        Javascrip syntax make sense in javascript. And on the other hand almost all the programming languages understand JSON syntax. 
+        <br />
+        So JSON is more universal. So we use JSON when we send data between computers that might use different languages.
+        <br />
+        We also use JSON wehn we store data. Built-in JSON object helps us convert a javascript object to JSON.
+        <br />
+        For example let's covert product2 obejct to json.
+      </p>
+
     <script>
       /*
       const product = {
@@ -115,6 +135,14 @@
 
       // Call a function inside an object using bracket notation
       product2["fun"]();
+
+      // Let's convert product2 object to JSON by using method, JSON.stringify(). 
+      // So stringify() is a function that saved inside the JOSN object. And we can call this function using bracket().
+      // Inside the bracket we provide the javascript object that we want to convert.
+      JSON.stringify(product2)
+
+      // Now print this in console
+      console.log(JSON.stringify(product2))
     </script>
   </body>
 </html>
