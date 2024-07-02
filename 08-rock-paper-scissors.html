@@ -42,11 +42,19 @@
 
     <script>
       // To add a score to the game, we created a variable and store an object into it
-      const score = {
-        wins: 0,
-        losses: 0,
-        ties: 0,
-      };
+      // const score = {
+      //   wins: 0,
+      //   losses: 0,
+      //   ties: 0,
+      // };
+      const score = JSON.parse(localStorage.getItem("score"));
+
+      // It is now able to save the the last score and display is console.
+      // We need to replace the codes score reset to zero with the value from the localstorage.
+      // Before doing this we need to convert this to a JS object since localStorage is a string.
+      // To do so we call the JSON.parse() method.
+      // Then replace the score value reset to zero codes with this localStorage value.
+      // console.log(JSON.parse(localStorage.getItem("score")));
 
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
@@ -81,6 +89,7 @@
 
         // After every move we will update the score from the result.
         // We will use if statement and check if this is a win, we will update the win property inside the score object by increasing by 1.
+        // Here we will save the score in localStorage:
         if (result === "You win.") {
           score.wins += 1;
         } else if (result === "You lose.") {
@@ -88,6 +97,35 @@
         } else if (result === "Tie.") {
           score.ties += 1;
         }
+
+        // LocalStorage:
+        // Since the score currently store in a variable so after reloading the page the score deleted and scroe resets to zero.
+        // To fix this we will store the score in localStorage so that it does not delete after reloading the page.
+        // To do so we will call a function, setItem() inside localStorage object. We need to pass 2 strings here in the function
+        // 1. first string is name this is how we access the value that we save later. Let's pass 'message' as the name.
+        // 2. then we pass the value that we want to save in the localStorage(it only supports string) let's say we pass the value 'hello'.
+        // So this is how we save the value in localStorage.
+        // Now let's get out the valu from the localstorage:
+        // To do so we need to call another fuction getItem() inside localStorage object. And pass the name, which is 'message' in this case.
+        // And print in console
+
+        // localStorage.setItem("message", "hello");
+
+        // get the value out of the localStorage. It prints hello in the console.
+
+        // console.log(localStorage.getItem("message"));
+
+        // Now let's update the game, score with localStorage.
+        // pass 'score' as name. and the score variable at the top. But the localStorage only support string so we need convert this to JSON object by using stringify
+        // Now save the codes and run the program it will save the score value in localStorage.
+        localStorage.setItem("score", JSON.stringify(score));
+
+        // Now, to get the score value out of the localStorage we need to call getItem() method.
+        // But we will call this at the top when the page loads it get the value out of the localstorage.
+
+        // The last step is to, not re-seting the score zero everytime rather use the result we get from the localStorage.
+        // But the results is string so we need to convert this to an javascript object.
+        // And finally, remove the reset zero to the value from localStorage.
 
         alert(
           `You picked ${playerMove}. Computer picked ${computerMove}. ${result}
