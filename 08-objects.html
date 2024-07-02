@@ -60,6 +60,15 @@
         For example let's covert product2 obejct to json.
       </p>
 
+      <h3>LocalStorage Built-in object:</h2>
+        <p>
+          LocalStorage save values more permanently. When we create a variables it only works in the current page. 
+          <br />
+          For an example: In our rock paper sesiors game we play the game and can see the score but when we refresh the page the score are gone. Because all of the variables are deleted and resets to zero. 
+          <br />
+          Now we want to save the score in the localStorage so that after refreshing the page it still start from the previous score. 
+        </p>
+
     <script>
       /*
       const product = {
@@ -136,6 +145,7 @@
       // Call a function inside an object using bracket notation
       product2["fun"]();
 
+      // Built-in Object: JSON, LocalStorge.
       // Let's convert product2 object to JSON by using method, JSON.stringify(). 
       // So stringify() is a function that saved inside the JOSN object. And we can call this function using bracket().
       // Inside the bracket we provide the javascript object that we want to convert.
@@ -143,6 +153,19 @@
 
       // Now print this in console
       console.log(JSON.stringify(product2))
+      // Note: in the console we can see the the function inside the javascript object does not appears ins the JSON, it is because JSON does not support function.
+      // Note: stringify results the stirng. So if we print typeof the JOSN it will show it is stirng.
+      console.log(typeof JSON.stringify(product2))
+
+      // Now let's do opposite. Convert JSON to JavaScript object.
+      // To do so we use another buyilt-in JSON object, JSON.parse(). And here we pass the JSON stirng.
+
+      const jsonString = JSON.stringify(product2)
+      JSON.parse(jsonString)
+
+      // Let's print in console:
+      console.log(JSON.parse(jsonString))
+
     </script>
   </body>
 </html>
