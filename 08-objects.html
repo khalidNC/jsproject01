@@ -98,6 +98,7 @@
       console.log(typeof products);
       */
 
+      /*
       // Another object
       const product2 = {
         name: "shirt",
@@ -165,6 +166,85 @@
 
       // Let's print in console:
       console.log(JSON.parse(jsonString))
+      */
+
+
+      // Auto-Boxing:
+      // We already learn object can have property and method.
+      // The values might have property and method. For an example,
+      // We are going to print "Hello" this string has property length. This will print the charachters numbers for the word Hello.
+      console.log("Hello".length);
+
+      // Aother example, the string also has method. Like, we can call the toUpperCase() method using the dot notation. This will print all the letters caplock.
+      console.log("Hello".toUpperCase())
+
+      // We might have a question, we know object has property and method but how can a string has property and method?
+      // The answer is, the JAvaScript has a special feature call auto-boxing. JS automaticall wrap the string as a special object. This feature is called Auto-boxing.
+      // Auto-boxing also works for other type os vales like, numbers and boolean. 
+      // Auto-boxing does not work for null and undefined values.
+
+
+      // Objects are references:
+      // To demo this, let's create a variable with an object.
+      const object1 = {
+        message: "hello"
+      }
+      // Here, we might think, the object save directly into the variable.
+      // But it works little differently. The object save somewhere inside the computer memory and the variable(object1) gets a reference opint to the location of computer memory.
+      // This is like a shortcut of a file in computer.
+      // Object is a reference because it make the language effecient. For an example. Let's create another varable object2 and reference to object1
+      const obejct2 = object1;
+      // here object2 is not a copy of object1 it is just a reference pointing to the variable memory and the value is 'hello'.
+      // This is how the language become more effecient with references.
+
+      // Interesnting behaviour of references:
+      // we can change the value of message property even though we created the variable with const.
+      // It is because, this variable is just contain a reference pointing to the computer memory.
+      // const preventing to changing the reference pointing to the memory. But it does not prevent to reaching to the point and changing the value.
+      object1.message = "Good job!";
+      // And print object1 in console it will show the new message "Good Job!"
+      console.log(object1);
+
+      // Another Interesting behaviour of references:
+      // We can not compare objects directly. for example. create a new object with variable object3 with same value as object1
+      const obejct3 = {
+        message: "Good job!"
+      };
+      // Now try to compare object3 to object1.
+      console.log(object1 === obejct3);
+      // It prints 'false' in console. So it is showing that object1 and object3 are not same even though their value are same.
+      // It is because these objects compare the references not the value. And onject3 has a diferent reference than object1 so it show 'false'.
+      // Now if we compare object1 with object2 then it will show ture because both has same reference.
+      console.log(object1 === obejct2);
+
+      // Shortcuts for objects:
+      const obejct4 = {
+        message: "Good job!",
+        price: 799
+      };
+      // Create an object as above
+      // Now let's say we want to get the message property out of the object and save into a variable with same name as property
+      // const message = obejct4.message
+      // We can do this in shortcut called distructuring
+      const { message } = obejct4
+
+      console.log(message);
+
+      // Destructuring with multiple properties.
+      const obejct5 = {
+        product: "Rice",
+        price: 70
+      };
+
+      const { product, price } = obejct5;
+
+      console.log(product, price);
+
+      // Shortcut: Shorthand property
+      
+      const object5 = {
+        message: message
+      }
 
     </script>
   </body>
