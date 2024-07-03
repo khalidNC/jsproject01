@@ -35,6 +35,11 @@
       score.wins = 0;
       score.losses = 0;
       score.ties = 0;
+      // To remove the localStorage value of score.
+      // Save the codes and try to play the game. But it gives an error 'TypeError: Cannot read properties of null'.
+      // It is because, when we remove score then the score variable at below has nothing and it is null.
+      // To fix this issue we can set a default value when set the score variable with if statement.
+      localStorage.removeItem('score')
     "
     >
       Reset Score
@@ -47,7 +52,27 @@
       //   losses: 0,
       //   ties: 0,
       // };
-      const score = JSON.parse(localStorage.getItem("score"));
+      // const score = JSON.parse(localStorage.getItem("score"));
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+
+      // To fix the removeItem issue.
+      // we use if statement. And change the const to let because, we are reassigning the variable so const score should be chnaged to let score
+      // Shortcut way:
+      // if (score === null) { we can write this in shortcut way !score
+      // Now we can use default oparator,|| as a shortcut to check left side value if falsy then take default value from rightside
+      /*
+      if (!score) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0,
+        };
+      }
+      */
 
       // It is now able to save the the last score and display is console.
       // We need to replace the codes score reset to zero with the value from the localstorage.
@@ -56,6 +81,11 @@
       // Then replace the score value reset to zero codes with this localStorage value.
       // console.log(JSON.parse(localStorage.getItem("score")));
 
+      // Now we need to remove the localStorage as well when we click on the reset score button.
+      // Beacuse if we reset and reload the page then start play the game it will grab the score from the localStorage which is the previous score.
+      // To do so we remove the localStorage value inside the button above by calling a method localStorage.removeItem() and pass the value we want to remove.
+
+      // Function:
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
 
