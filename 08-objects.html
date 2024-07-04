@@ -241,11 +241,45 @@
       console.log(product, price);
 
       // Shortcut: Shorthand property
-      
       const object5 = {
-        message: message
+        // message: message
+        message
+        // What is does is the message variable gets into here
+        // If print in console it show 'Good job!'
       }
 
+      console.log(object5);
+
+      // Now we have a shortcut of the above code.
+      // Since the property and the value name is same so we can write once inside the object. And it is same as above code.
+      /*
+      const object5 = {
+        message
+      }
+      */
+
+      // Shortcut: Shorthand method:
+      const obejct6 = {
+        message,
+        // method: function function1 () {
+        //   console.log("method")
+        // }
+
+        // Shortcut of above. This is called shorthand method syntax
+        method () {
+          console.log("method")
+        }
+      }
+
+      console.log(obejct6);
+      // To call the fucntion
+      obejct6.method();
+
+      // We access the function inside the object6 by object6.method and the run it by ()
+      // So the function run and print "method" in console.
+
+      // And we have a shortcut of the above codes.
+      // Which is inside the object we actualy not need to have the function and function_name
     </script>
   </body>
 </html>
