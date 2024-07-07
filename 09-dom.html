@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dom</title>
+    <style>
+      h1 {
+        margin: 10px 0 0;
+      }
+      h2 {
+        margin: 40px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>What is dom?</h1>
+    <p>
+      Dom is another built-in object. Called document object.
+      <br />
+    </p>
+
+    <h1>Example:</h1>
+    <p>
+      Now if we type 'document' inside the script tag. this is a built-in
+      object. And if we right document.body.innerHTML = 'hello' than this will
+      remove everything from the page and replace with 'hello'
+      <br />
+    </p>
+
+    <h1>Let's break down the code document.body.innerHTML = 'hello':</h1>
+    <p>
+      here document is a built-in object, than a dot notation, means we are accessing a property of the document object called 'body'.
+      now the body is also an object and with dot notation we are accessing a body object called innerHTMl. Than with 
+      the equal sign we are changing the innerHTMl property to the string hello.
+      </body>
+      <br />
+    </p>
+
+    <h1>Another Example:</h1>
+    <p>
+      Now another example with document. document.title = 'good job'
+      here we are changing the page title property to the string good job.
+    </p>
+
+    <button>hello</button>
+
+    <script>
+      document.body.innerHTML = "hello";
+      document.title = 'good job'
+    </script>
+  </body>
+</html>
