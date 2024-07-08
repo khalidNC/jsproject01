@@ -53,13 +53,28 @@
     </h1>
     <p>
       document.querySelector() lets us get any element from the page and put in
-      inside Javascrip.
+      inside Javascrip. console.log(document.querySelector("button")); here the
+      querySelector takes the button element and put into the JS.
       <br />
     </p>
 
     <button>hello</button>
 
     <script>
+      // It take string as the element of the page form html body.
+      // For example, in this page we have a button called hello. So we pass the button tag in the methon
+      // This will takes the first button of the page.
+      // Let's print this in console to check.
+      console.log(document.querySelector("button"));
+
+      // Now, this document.querySelector("button" is just a JS object, and it has properties, methods that we can use.
+      // Every html element has a property called innerHTML, which let us controll the html inside the element.
+      // So if we called the innerHTML property for the button it will print the inner html which is "hello" in this case.
+      console.log(document.querySelector("button").innerHTML);
+
+      // Adn now we can change this to anything we want. Fior an example
+      console.log((document.querySelector("button").innerHTML = "Hello"));
+
       /*
       // Print page title using DOM title property in console.
       console.log(document.title);
