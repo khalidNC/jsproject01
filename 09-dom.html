@@ -59,6 +59,7 @@
     </p>
 
     <button>hello</button>
+    <button class="js-button">Second button</button>
 
     <script>
       // It take string as the element of the page form html body.
@@ -73,7 +74,26 @@
       console.log(document.querySelector("button").innerHTML);
 
       // Adn now we can change this to anything we want. Fior an example
-      console.log((document.querySelector("button").innerHTML = "Hello"));
+      console.log((document.querySelector("button").innerHTML = "Changed"));
+
+      // now, if we have 2 buttons in the page then how we can select the second one.
+      // Problem is query.Selector() select the first button. So the solution is, we can add class attribute to the buttons.
+      // so in the openning tag we can added class attribute like; class="js-button" so we are actually lebel the button with js-button.
+      // now we can get the second button with the querySelector(). Syntax: document.querySelector('.js-button') so this time we use dot this indicates it is a class attribute.
+      // We can print in console. this is calss selector and this is used in css as well.
+      // This is the common practice to give the name start with 'js-' so tha it is known that this class is being used in javascript.
+      console.log(document.querySelector(".js-button"));
+
+      // Now we know HTML elements are the JavaScript objects. So this'document.querySelector(".js-button")' is an object, and objects are actually values.
+      // So we can store the object in a varibale
+      const buttonElement = document.querySelector(".js-button");
+      // in this case, The variable namming practice is ends with Element/Elem to make it clear  this is an HTML element inside the variable.
+      // Now print the variable in console.
+      console.log(buttonElement);
+
+      // So what we did?
+      // Using the the DOM we can get HTML element inside a page, put it inside a JavaScript, and save it in a variable.
+      // So the DOM combines the JS and HTML together.
 
       /*
       // Print page title using DOM title property in console.
