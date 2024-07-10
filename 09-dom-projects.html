@@ -18,24 +18,52 @@
       5. Then put the button HTML element insid JavaScript using document.querySelector() method
       6. Then check the button text is 'Subscribe' using if statement;
       7. if ture, then change to 'Subscribed' else back to original text.
+
+      Cleaner code:
+      1. Currently we write JavaScript code and html code together.
+      2. To make it more readable and clean we can separate these codes by creating a function inside script tag.
+      3. Create a function named subscribe and cut the codes inside onclick and paste inside the function
+      4. Then inside onclick attribut we call the subscribe function.
+      5. This is how separate javascript codes from html codes.
     -->
     <p>YouTube Subscribe Button</p>
     <button
       onclick="
-      // Now we have the button inside JavaScrip
-      const buttonElement = document.querySelector('.js-subscribe-button');
+      subscrebe();
+      // // Now we have the button inside JavaScrip
+      // const buttonElement = document.querySelector('.js-subscribe-button');
 
-      // Check the button text is 'Subscribe'
-      if (buttonElement.innerHTML === 'Subscribe') {
-        // If true, change to Subscribed using innerHTML
-        buttonElement.innerHTML = 'Subscribed'
-      } else {
-        // And else back to the original text
-        buttonElement.innerHTML = 'Subscribe';
-      }
+      // // Check the button text is 'Subscribe'
+      // // Instead of innerHTML we can use innerText property to get exact text of the html element. Because the text for the button might have empty space.
+      // // if (buttonElement.innerHTML === 'Subscribe')
+      // if (buttonElement.innerText === 'Subscribe') {
+      //   // If true, change to Subscribed using innerHTML
+      //   buttonElement.innerHTML = 'Subscribed'
+      // } else {
+      //   // And else back to the original text
+      //   buttonElement.innerHTML = 'Subscribe';
+      // }
     "
       class="js-subscribe-button"
-    >Subscribe</button>
-    <script></script>
+    >
+      Subscribe
+    </button>
+    <script>
+      function subscrebe() {
+        // Now we have the button inside JavaScrip
+        const buttonElement = document.querySelector(".js-subscribe-button");
+
+        // Check the button text is 'Subscribe'
+        // Instead of innerHTML we can use innerText property to get exact text of the html element. Because the text for the button might have empty space.
+        // if (buttonElement.innerHTML === 'Subscribe')
+        if (buttonElement.innerText === "Subscribe") {
+          // If true, change to Subscribed using innerHTML
+          buttonElement.innerHTML = "Subscribed";
+        } else {
+          // And else back to the original text
+          buttonElement.innerHTML = "Subscribe";
+        }
+      }
+    </script>
   </body>
 </html>
