@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dom Projects</title>
+  </head>
+  <body>
+    <!-- 
+      Project1: Youtube subscrebe button.
+
+      Algarithm:
+      1.  When user clicks on the Subscribe button the button will change to Subscribed
+
+      Implementation:
+      1. Simple heading with text using <p> tag
+      2. Add a button called Subscribe using <button> tag
+      3. Use onclick attribute in the button tag and inside the onclick;
+      4. Also add a class attribute and name this with prefix 'js-'
+      5. Then put the button HTML element insid JavaScript using document.querySelector() method
+      6. Then check the button text is 'Subscribe' using if statement;
+      7. if ture, then change to 'Subscribed' else back to original text.
+    -->
+    <p>YouTube Subscribe Button</p>
+    <button
+      onclick="
+      // Now we have the button inside JavaScrip
+      const buttonElement = document.querySelector('.js-subscribe-button');
+
+      // Check the button text is 'Subscribe'
+      if (buttonElement.innerHTML === 'Subscribe') {
+        // If true, change to Subscribed using innerHTML
+        buttonElement.innerHTML = 'Subscribed'
+      } else {
+        // And else back to the original text
+        buttonElement.innerHTML = 'Subscribe';
+      }
+    "
+      class="js-subscribe-button"
+    >Subscribe</button>
+    <script></script>
+  </body>
+</html>
