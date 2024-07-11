@@ -36,7 +36,32 @@
       3. Start adding score first:
         a. After the Scissor button add a p tag
         b. add a class attribute let's name it 'js-score' into the p tag so that we can select the element in JavaScript
+        c. Use document.querySelector() to get element in JS.
+        d. Then put the score uisng innerHTML = 
+        e. This show the score on the page. But this is not updating along with play the game.
+        f. To update the score in the page, we need to reuse the same code after updating the score codes.
+        g. To avoid the duplication create a new function updateScoreElement() and put the JS score code inside the fucntion. And call the function on above places instead of the codes.
+        h. Socor are updating in the page while play the game.
+        i. Now to make the Reset button works in the page, call the function updateScoreElement() inside onlick attribute in Reset Score button.
+
+      4. Now put result and moves in the page above the scores display in the page:
+        a. First let's a couple of p tags in html codes just above js-score p tag.
+        b. first p tag is to display result, so add a class attribut in the p tag named js-result
+        c. the second p tag is to display moves again add a attribute here named js-moves.
+        d. Now by using DOM put thr result and moves in these p tags.
+        e. Scroll down to the codes where we show the result in the popup currently, which is alert. 
+        f. here we use the dom - document.querySelector('.js-result')
+        g. and change this to results(variable that store results after playing the game) using innerHTML. This display the result in tha page.
+        h. Now to display the moves, in same way use dom - document.querySelector('.js-moves')
+        i. and change this to playerMove and computerMove. (These are variables and to put these in string use `` stiring.).
+        j. results, moves, and score all are displaying in the page.
+      
+      5. All work in the page so no need to popup now. So delete the popup, whicis alert section from the codes. Save and all works.
+
+
     -->
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
     <p class="js-score"></p>
 
     <!-- Add a new button to reset score -->
@@ -191,10 +216,22 @@
         // So instead the above code call the function
         updateScoreElement();
 
-        alert(
-          `You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
-        );
+        // Display result in the page: Using DOM to get the html element in JS.
+        // And change this to result, the variable that stores the result of the game after avery moves.
+        document.querySelector(".js-result").innerHTML = result;
+
+        // Display moves in the page: Uisng DOM to get the html element in js.
+        // And change this to computerMove and playerMove using innerHtml
+        // So moves and results are also showing up in the page.
+        document.querySelector(
+          ".js-moves"
+        ).innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+
+        // Delete the popup to display the game results and move.
+        //         alert(
+        //           `You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+        // Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
+        //         );
       }
 
       // Function to reuse codes to update score in webpage.
