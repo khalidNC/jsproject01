@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <button
+      onclick="
+        playGame('rock');
+      "
+    >
+      Rock
+    </button>
+
+    <button
+      onclick="
+        playGame('paper')
+      "
+    >
+      Paper
+    </button>
+
+    <button
+      onclick="
+        playGame('scissors');
+      "
+    >
+      Scissors
+    </button>
+
+    <!-- 
+      Improvement of the game:
+      1. Currently, the score and win/loss/tie shows in popup
+      2. Now show these in the webpage
+      3. Start adding score first:
+        a. After the Scissor button add a p tag
+        b. add a class attribute let's name it 'js-score' into the p tag so that we can select the element in JavaScript
+    -->
+    <p class="js-score"></p>
+
+    <!-- Add a new button to reset score -->
+    <button
+      onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      // To remove the localStorage value of score.
+      // Save the codes and try to play the game. But it gives an error 'TypeError: Cannot read properties of null'.
+      // It is because, when we remove score then the score variable at below has nothing and it is null.
+      // To fix this issue we can set a default value when set the score variable with if statement.
+      localStorage.removeItem('score');
+      // We will call the updateScoreElement() function here after reset score.
+      // So that when click on the reset score button in the page it reset to zero in the page.
+      updateScoreElement();
+    "
+    >
+      Reset Score
+    </button>
+
+    <script>
+      // To add a score to the game, we created a variable and store an object into it
+      // const score = {
+      //   wins: 0,
+      //   losses: 0,
+      //   ties: 0,
+      // };
+      // const score = JSON.parse(localStorage.getItem("score"));
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+
+      // Let's get the js-score p element in our JavaScript to show score in webpage.
+      // Now we need to put the score inside the p element in JavaScript.
+      // And this will put the score in the page but it is not updating after every move. So next step is to update score.
+      /*
+      document.querySelector(
+        ".js-score"
+      ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+      */
+      // So instead of the codes use call the function
+      updateScoreElement();
+
+      // To fix the removeItem issue.
+      // we use if statement. And change the const to let because, we are reassigning the variable so const score should be chnaged to let score
+      // Shortcut way:
+      // if (score === null) { we can write this in shortcut way !score
+      // Now we can use default oparator,|| as a shortcut to check left side value if falsy then take default value from rightside
+      /*
+      if (!score) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0,
+        };
+      }
+      */
+
+      // It is now able to save the the last score and display is console.
+      // We need to replace the codes score reset to zero with the value from the localstorage.
+      // Before doing this we need to convert this to a JS object since localStorage is a string.
+      // To do so we call the JSON.parse() method.
+      // Then replace the score value reset to zero codes with this localStorage value.
+      // console.log(JSON.parse(localStorage.getItem("score")));
+
+      // Now we need to remove the localStorage as well when we click on the reset score button.
+      // Beacuse if we reset and reload the page then start play the game it will grab the score from the localStorage which is the previous score.
+      // To do so we remove the localStorage value inside the button above by calling a method localStorage.removeItem() and pass the value we want to remove.
+
+      // Function:
+      function playGame(playerMove) {
+        const computerMove = pickComputerMove();
+
+        let result = "";
+
+        if (playerMove === "scissors") {
+          if (computerMove === "rock") {
+            result = "You lose.";
+          } else if (computerMove === "paper") {
+            result = "You win.";
+          } else if (computerMove === "scissors") {
+            result = "Tie.";
+          }
+        } else if (playerMove === "paper") {
+          if (computerMove === "rock") {
+            result = "You win.";
+          } else if (computerMove === "paper") {
+            result = "Tie.";
+          } else if (computerMove === "scissors") {
+            result = "You lose.";
+          }
+        } else if (playerMove === "rock") {
+          if (computerMove === "rock") {
+            result = "Tie.";
+          } else if (computerMove === "paper") {
+            result = "You lose.";
+          } else if (computerMove === "scissors") {
+            result = "You win.";
+          }
+        }
+
+        // After every move we will update the score from the result.
+        // We will use if statement and check if this is a win, we will update the win property inside the score object by increasing by 1.
+        // Here we will save the score in localStorage:
+        if (result === "You win.") {
+          score.wins += 1;
+        } else if (result === "You lose.") {
+          score.losses += 1;
+        } else if (result === "Tie.") {
+          score.ties += 1;
+        }
+
+        // LocalStorage:
+        // Since the score currently store in a variable so after reloading the page the score deleted and scroe resets to zero.
+        // To fix this we will store the score in localStorage so that it does not delete after reloading the page.
+        // To do so we will call a function, setItem() inside localStorage object. We need to pass 2 strings here in the function
+        // 1. first string is name this is how we access the value that we save later. Let's pass 'message' as the name.
+        // 2. then we pass the value that we want to save in the localStorage(it only supports string) let's say we pass the value 'hello'.
+        // So this is how we save the value in localStorage.
+        // Now let's get out the valu from the localstorage:
+        // To do so we need to call another fuction getItem() inside localStorage object. And pass the name, which is 'message' in this case.
+        // And print in console
+
+        // localStorage.setItem("message", "hello");
+
+        // get the value out of the localStorage. It prints hello in the console.
+
+        // console.log(localStorage.getItem("message"));
+
+        // Now let's update the game, score with localStorage.
+        // pass 'score' as name. and the score variable at the top. But the localStorage only support string so we need convert this to JSON object by using stringify
+        // Now save the codes and run the program it will save the score value in localStorage.
+        localStorage.setItem("score", JSON.stringify(score));
+
+        // Now, to get the score value out of the localStorage we need to call getItem() method.
+        // But we will call this at the top when the page loads it get the value out of the localstorage.
+
+        // The last step is to, not re-seting the score zero everytime rather use the result we get from the localStorage.
+        // But the results is string so we need to convert this to an javascript object.
+        // And finally, remove the reset zero to the value from localStorage.
+
+        // Update score in webpage: to update the score the above code need to write here and update works.
+        // But we notice this is duplication of codes so in this case we can use a function to reuse codes.
+        /*
+        document.querySelector(
+          ".js-score"
+        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+        */
+        // So instead the above code call the function
+        updateScoreElement();
+
+        alert(
+          `You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
+        );
+      }
+
+      // Function to reuse codes to update score in webpage.
+      function updateScoreElement() {
+        document.querySelector(
+          ".js-score"
+        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+      }
+
+      function pickComputerMove() {
+        const randomNumber = Math.random();
+
+        let computerMove = "";
+
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          computerMove = "rock";
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          computerMove = "paper";
+        } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+          computerMove = "scissors";
+        }
+
+        return computerMove;
+      }
+    </script>
+  </body>
+</html>
