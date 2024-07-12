@@ -7,7 +7,7 @@
     <!-- 
       Project1: Youtube subscrebe button.
 
-      Algarithm:
+      Algorithm:
       1.  When user clicks on the Subscribe button the button will change to Subscribed
 
       Implementation:
@@ -23,9 +23,62 @@
       1. Currently we write JavaScript code and html code together.
       2. To make it more readable and clean we can separate these codes by creating a function inside script tag.
       3. Create a function named subscribe and cut the codes inside onclick and paste inside the function
-      4. Then inside onclick attribut we call the subscribe function.
+      4. Then inside onclick attribute we call the subscribe function.
       5. This is how separate javascript codes from html codes.
     -->
+
+    <!-- 
+      Project2: Amazon shipping calculator.
+
+      Algorithm:
+      1. If the order amount:
+        a. under $40 then shipping charge is 10
+        b. over $50 then shipping charge is free
+      2. calculation: takes input and calculate as condition
+
+      Steps:
+      1. Get the text from the input box
+      2. if amount less than $40 add $10
+      3. Displsy the total
+
+      Implementation:
+      1. Frist add p tag for the title "Amazon shipping calculator" in html body.
+      2. Then add a input box, This <input> tag is special, it is called void element.
+      3. Inside the input tag, add a placeholder attribute and write some text that we want to show inside the input box when there is no input.
+      4. Then add a button element, Calculate.
+      5. This are the html elements now we need to JavaScript emplementation.
+      6. Add onlick attribute in button
+      7. Then create a function calculateTotal() in the JS
+      8. And call the function inside the onclick.
+      9. Next step, is to get the text from the input text box.
+      10. first, get the input element into the JS. todo that use document.querySelector(). so add a class to the input so that we select it.
+      11. Now inside the JS function, write the code; document.querySelector('js-cost-input')
+      12. And save the result in a variable, inputElement
+      13. Now we will get the text form the input element. So far we did this with innerHTML but for input element we use .value property.(Note: whenever get .value from the DOM by default it returns a string, so if we want to do math then need to convert this to Number())
+      14. Store the value in a variable called cost.
+      15, Next step is to check if the value is below $40 than add $10.
+      16. Next step is to display the total cost on the page. To do so add a <p> tag in html and add a class attribute and name it js-total-cost.
+      17. Then inside the JavaScript, use document.querySelector('.js-total-cost') to select the element.
+      18. And to put the cost inside the paragraph in JS, we can use innerHtml property
+    -->
+
+    <!-- 
+      Feature: Input the text in input box and hit enter key in keyboard it will clculate:
+      1. Inside the code, so far we use the onlick attribute to click an element.
+      2. HTML has another attribute ath we can use called, onkeydown="..." it runs JS when we press a key down.
+      3. For an example, add the onkeydown property inside the input element and print a message in console and see, press any key in keyboad and see the message in the console.
+      4. Note: clicks,keydowns => events, and onclick, onkeydown => event listeners(the check for event and run JS)
+      5. For the feature we need the steps:
+        a. When we press a key
+        b. check if the key is 'Enter'
+        c. If ture, then calculate the cost.
+      6. Use JavaScript object called event. Instead the message we print in console print the event.
+      7. Now, press any key inside the input box and see the event object in the console.
+      8. Here in the object we can see the keyword 'key', so if we print event.key this will print the key that we press in console.
+      9. Press 'Enter' key and see, the "Enter" shows in the console.
+      10. Now check with if statement, if event.key equal to 'Enter' then do the same calculation that the calcualte button does.
+    -->
+
     <p>YouTube Subscribe Button</p>
     <button
       onclick="
@@ -48,7 +101,43 @@
     >
       Subscribe
     </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input
+      placeholder="Cost of Order"
+      class="js-cost-input"
+      onkeydown="
+      // console.log('Typing');
+      // console.log(event.key);
+      if (event.key) {
+        calculateTotal();
+      }
+    "
+    />
+    <button
+      onclick="
+      calculateTotal()
+    "
+    >
+      Calculate
+    </button>
+    <p class="js-total-cost"></p>
+
     <script>
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+        // Since reassign the variable in if statement so need to change the variable const to let
+        // const cost = inputElement.value;
+        let cost = Number(inputElement.value); // Need to convert the string to number.
+
+        if (cost < 40) {
+          cost += 10;
+        }
+
+        document.querySelector(".js-total-cost").innerHTML = `$${cost}`;
+      }
+
+      // Fuction to subscribe
       function subscrebe() {
         // Now we have the button inside JavaScrip
         const buttonElement = document.querySelector(".js-subscribe-button");
