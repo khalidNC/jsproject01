@@ -110,10 +110,10 @@
       onkeydown="
     // console.log('Typing');
     // console.log(event.key);
-    if (event.key) {
-      calculateTotal();
-    }
-    // handleCostKeyDown();
+      // if (event.key === 'Enter') {
+      //   calculateTotal();
+      // }
+    handleCostKeyDown(event);
   "
     />
     <button
@@ -127,11 +127,11 @@
 
     <script>
       // Define a function to manage the onkeydown feature
-      // function handleCostKeyDown() {
-      //   if (event.key) {
-      //     calculateTotal();
-      //   }
-      // }
+      function handleCostKeyDown(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
       function calculateTotal() {
         const inputElement = document.querySelector(".js-cost-input");
         // Since reassign the variable in if statement so need to change the variable const to let
