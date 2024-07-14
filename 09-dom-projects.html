@@ -126,6 +126,12 @@
     <p class="js-total-cost"></p>
 
     <script>
+      // Automatic type conversion or type coercion:
+      // If we use String() function  and convert a number to string, then do math directly with the results
+      // And print in console, it actualy returns the result
+      const text = String(25);
+      console.log(text - 5); // This is called Type Coercion
+
       // Define a function to manage the onkeydown feature
       function handleCostKeyDown(event) {
         if (event.key === "Enter") {
