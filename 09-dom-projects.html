@@ -126,11 +126,20 @@
     <p class="js-total-cost"></p>
 
     <script>
+      // Couple of things(String + window object) to know:
       // Automatic type conversion or type coercion:
-      // If we use String() function  and convert a number to string, then do math directly with the results
+      // If we use String() function  and convert a number to string, then do math(minus) directly with the results
       // And print in console, it actualy returns the result
       const text = String(25);
       console.log(text - 5); // This is called Type Coercion
+      // But this is not recommanded to do math like this. Because adding numbers returns differently
+      console.log("25" + 5); //this show 255.
+
+      // Window object:
+      // window is a built-in object in JavaScript which represent browser
+      // For example: in html document is part of browser. so document.querySelector() and window.document.querySelector are same thing
+      // Another example: console is also a part browser so console.log() and window.console.log() are same thing.
+      // Though they are same we do not write window. JavaScript does that for us internally.
 
       // Define a function to manage the onkeydown feature
       function handleCostKeyDown(event) {
